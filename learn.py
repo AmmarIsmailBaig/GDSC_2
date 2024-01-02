@@ -15,17 +15,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 model = DecisionTreeClassifier()
 
-# Train the model on the training set
 model.fit(X_train, y_train)
 
-# Make predictions on the testing set
 y_pred = model.predict(X_test)
 
-# Evaluate the model performance
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy:.2f}')
 
-# Display classification report
 print('\nClassification Report:')
 print(classification_report(y_test, y_pred))
 
@@ -41,10 +37,8 @@ def predict_purchase(age, salary):
     prediction = model.predict(input_data)
     return "yes" if prediction[0] == 1 else "No"
 
-# Get user input from the command line
 user_age = float(input("Enter age: "))
 user_salary = float(input("Enter estimated salary: "))
 
-# Use the predictor function
 prediction_result = predict_purchase(user_age, user_salary)
 print(f"The user is likely to purchase: {prediction_result}")
